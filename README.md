@@ -7,17 +7,18 @@
 - [ ] Readme 읽기 쉽게 수정
 - [ ] 글 목록 조회
 - [ ] 댓글 목록 조회
+- [ ] 글 예약 전송
 - [ ] custom request
 
 
 ---
 # 사용준비
-1.  https://developers.band.us/develop/myapps/api/form 에서 서비스를 등록합니다. 참고로 Redirect URI은 아무렇게나 설정하셔도 무방합니다.
-2. https://developers.band.us/develop/myapps/list 에서 방금 생성한 애플리케이션 이름을 클릭하여 API수정페이지로 이동한 후, 밴드계정 연동 버튼을 클릭하여 연동해줍니다.
-3. 이 후 표시되는 Access Token을 메모해둡니다.
+1.  https://developers.band.us/develop/myapps/api/form 에서 서비스를 등록합니다. 참고로 Redirect URI은 **아무거나 입력해도** 무방합니다.
+2. https://developers.band.us/develop/myapps/list 에서 방금 생성한 애플리케이션 이름을 클릭하여 API수정페이지로 이동한 후, **밴드계정 연동 버튼**을 클릭하여 연동해줍니다.
+3. 이 후 표시되는 **Access Token**을 메모해둡니다.
 4. 이 플러그인을 적용하고, 서버를 재시작합니다.
-5. PMMP폴더 내부에 있는 plugin_data폴더에서 생성된 bandAPI_hc폴더에 있는 config.yml을 열어줍니다.
-6. token: "" 를 아래와 같이 수정합니다.
+5. PMMP폴더 내부에 있는 plugin_data폴더에서 생성된 **bandAPI_hc폴더**에 있는 config.yml을 열어서 아래와 같이 수정합니다.
+6. **token: ""** 를 아래처럼 수정해주세요.
 ```
 token: 아까 기억해둔 Access Token입력
 ```
@@ -32,6 +33,8 @@ token: AAAsbasS8ibhddbauisna2dfasnZQdjsHdjs
 ```php
 $api = $this->getServer()->getPluginManager()->getPlugin("bandAPI_hc");
 ```
+
+	예제 : https://github.com/Hancho1577/PMMP-bandAPI/tree/master/example
 ## band key 가져오기
 타 플러그인에서 아래와같이 getBands를 호출하여 band key가 포함된 json을 전달받을 수 있습니다.
 ```php
@@ -40,7 +43,7 @@ $api->getBands();
 ```
 참고로 서버 콘솔에 json이 출력됩니다만, 서버 로그엔 저장되지 않습니다.
 
-아래와 비슷한 내용일텐데, "band_key" 의 값을 메모하면 됩니다.  
+아래와 비슷한 내용일텐데, "band_key" 의 값을 메모하여 기억해주세요. ( 글 작성시 사용됩니다. )  
 ```
 {
 	"result_code": 1,

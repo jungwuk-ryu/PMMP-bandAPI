@@ -16,12 +16,14 @@ use pocketmine\event\player\PlayerQuitEvent;
 
 class example extends PluginBase implements Listener
 {
+    public $plugin;
     public function onEnable()
     {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        $this->plugin = $this->getServer()->getPluginManager()->getPlugin("bandAPI_hc");
     }
     public function onQuit(PlayerQuitEvent $ev)
     {
-        $this->getServer()->getPluginManager()->getPlugin("bandAPI_hc")->writePost($ev->getPlayer()->getName() . "님이 서버에서 퇴장하셨습니다.", "여기에 band_key의 값을 입력하세요.", false);
+        $this->plugin->writePost($ev->getPlayer()->getName() . '님이 서버에서 퇴장하셨습니다.', "여기에 band_key의 값을 입력하세요.", false);
     }
 }
